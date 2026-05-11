@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans text-steel-800 bg-white antialiased;
+  }
+
+  /* Focus visible pour accessibilité */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-orange-500;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-navy-700 font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Bouton principal */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-orange-500 hover:bg-orange-600 active:bg-orange-700
+           text-white font-semibold
+           px-6 py-3 rounded-lg
+           transition-all duration-200
+           shadow-orange hover:shadow-lg
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+           disabled:opacity-60 disabled:cursor-not-allowed
+           min-h-[44px];
+  }
+
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent hover:bg-navy-50 active:bg-navy-100
+           text-navy-700 hover:text-navy-800
+           font-semibold
+           px-6 py-3 rounded-lg
+           border-2 border-navy-700
+           transition-all duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700
+           min-h-[44px];
+  }
+
+  /* Bouton ghost sur fond sombre */
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white/10 hover:bg-white/20 active:bg-white/30
+           text-white
+           font-semibold
+           px-6 py-3 rounded-lg
+           border border-white/30
+           transition-all duration-200
+           backdrop-blur-sm
+           min-h-[44px];
+  }
+
+  /* Badge certification */
+  .cert-badge {
+    @apply inline-flex items-center gap-1.5
+           px-3 py-1.5
+           rounded-full text-xs font-bold
+           border;
+  }
+
+  /* Card standard */
+  .card {
+    @apply bg-white rounded-xl shadow-md border border-steel-100
+           transition-shadow duration-200 hover:shadow-lg;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-navy-700 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-steel-500 max-w-2xl mx-auto;
+  }
+
+  /* Accordéon */
+  .accordion-item {
+    @apply border border-steel-200 rounded-lg overflow-hidden
+           transition-shadow duration-200;
+  }
+
+  .accordion-trigger {
+    @apply flex items-center justify-between w-full
+           p-5 text-left font-semibold text-navy-700
+           bg-white hover:bg-steel-50
+           transition-colors duration-200
+           min-h-[44px];
+  }
+
+  .accordion-content {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+  }
+
+  /* Input formulaire */
+  .form-input {
+    @apply w-full px-4 py-3
+           border border-steel-200 rounded-lg
+           bg-white text-steel-800
+           placeholder-steel-400
+           transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent
+           min-h-[44px];
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-steel-700 mb-2;
+  }
+
+  /* Note étoiles */
+  .star-filled {
+    @apply text-yellow-400;
+  }
+
+  .star-empty {
+    @apply text-steel-200;
+  }
+}
+
+@layer utilities {
+  /* Texte dégradé */
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent;
+  }
+
+  /* Animation compteur */
+  .animate-count {
+    animation: countUp 2s ease-out forwards;
+  }
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-steel-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-steel-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-navy-700;
+}
