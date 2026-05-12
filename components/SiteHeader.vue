@@ -6,6 +6,7 @@ const isMobileMenuOpen = ref(false)
 
 const navLinks = [
   { href: '#apropos', label: 'À propos' },
+  { href: '#apropos-moi', label: 'À propos de moi' },
   { href: '#services', label: 'Services' },
   { href: '#engagements', label: 'Engagements' },
   { href: '#contact', label: 'Contact' },
@@ -38,7 +39,7 @@ onMounted(() => {
           </div>
           <div>
             <div class="text-white font-bold text-lg leading-none tracking-[0.15em] uppercase">{{ config.nom }}</div>
-            <div class="text-white/40 text-[10px] font-medium tracking-[0.25em] uppercase mt-1">Électricien RGE</div>
+            <div class="text-white/40 text-[10px] font-medium tracking-[0.25em] uppercase mt-1">Électricien Qualifelec</div>
           </div>
         </a>
 

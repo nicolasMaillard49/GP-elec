@@ -26,7 +26,7 @@ export const config = {
   geo: { latitude: 47.3522, longitude: -0.4444 },
 
   // Certifications
-  certifications: ["Qualifelec", "RGE", "IRVE"],
+  certifications: ["Qualifelec"],
   certificationDetails: [
     {
       nom: "Qualifelec",
@@ -34,20 +34,6 @@ export const config = {
       couleur: "#FACC15",
       description: "Qualification professionnelle de référence pour les électriciens. Atteste de notre maîtrise technique, de notre conformité aux normes NF C 15-100 et de notre engagement qualité. Renouvelée tous les 4 ans après audit.",
       benefice: "Expertise reconnue",
-    },
-    {
-      nom: "RGE",
-      nomComplet: "Reconnu Garant de l'Environnement",
-      couleur: "#22C55E",
-      description: "Certification indispensable pour que vos travaux ouvrent droit aux aides de l'État (MaPrimeRénov', CEE, TVA 5,5 %). Nous la renouvelons chaque année pour vous garantir l'accès aux dispositifs en vigueur.",
-      benefice: "Obligatoire pour vos aides",
-    },
-    {
-      nom: "IRVE",
-      nomComplet: "Infrastructure de Recharge Véhicule Électrique",
-      couleur: "#3B82F6",
-      description: "Habilitation obligatoire pour l'installation de bornes de recharge supérieures à 3,7 kW. Nous installons toutes les marques (Legrand, Schneider, Hager, Wallbox) avec garantie installation et SAV.",
-      benefice: "Bornes IRVE éligibles aux aides",
     },
   ],
 
@@ -67,7 +53,7 @@ export const config = {
       nom: "CEE",
       description: "Certificats d'Économies d'Énergie. Primes versées par les fournisseurs d'énergie pour vos travaux d'efficacité énergétique et l'installation de bornes de recharge.",
       montantMax: "Jusqu'à 960 €",
-      conditions: "Travaux d'efficacité énergétique ou IRVE",
+      conditions: "Travaux d'efficacité énergétique ou borne de recharge",
       couleur: "#FACC15",
       icon: "⚡",
     },
@@ -116,11 +102,11 @@ export const config = {
       marques: ["Legrand", "Schneider Electric", "Hager", "Siemens"],
     },
     {
-      id: "irve",
+      id: "borne-recharge",
       nom: "Borne de recharge véhicule électrique",
       icone: "🔌",
-      resume: "Installation IRVE certifiée — éligible aux aides CEE et crédit d'impôt.",
-      description: "Installation certifiée IRVE de bornes de recharge pour véhicule électrique à domicile ou en copropriété. Étude de l'arrivée électrique, dimensionnement, pose, mise en service, déclaration au gestionnaire de réseau. Bornes 3,7 à 22 kW selon votre véhicule et votre installation.",
+      resume: "Installation de bornes de recharge — éligible aux aides CEE et crédit d'impôt.",
+      description: "Installation de bornes de recharge pour véhicule électrique à domicile ou en copropriété. Étude de l'arrivée électrique, dimensionnement, pose, mise en service, déclaration au gestionnaire de réseau. Bornes 3,7 à 22 kW selon votre véhicule et votre installation.",
       prestations: [
         "Borne murale 3,7 / 7,4 / 11 / 22 kW",
         "Étude de l'arrivée électrique",
@@ -185,10 +171,10 @@ export const config = {
       image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1400&q=80",
     },
     {
-      id: "irve",
-      titre: "IRVE",
-      sousTitre: "Borne de recharge",
-      texte: "Installation certifiée IRVE de bornes 3,7 à 22 kW. Éligible aux aides CEE et crédit d'impôt jusqu'à 500 €.",
+      id: "borne-recharge",
+      titre: "Borne de recharge",
+      sousTitre: "Véhicule électrique",
+      texte: "Installation de bornes 3,7 à 22 kW pour véhicule électrique. Éligible aux aides CEE et crédit d'impôt jusqu'à 500 €.",
       image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1400&q=80",
     },
     {
@@ -216,13 +202,13 @@ export const config = {
     },
     {
       titre: "Conformité",
-      texte: "Certifications Qualifelec, RGE et IRVE renouvelées. Attestation Consuel systématique pour la mise sous tension.",
+      texte: "Certification Qualifelec renouvelée. Attestation Consuel systématique pour la mise sous tension.",
     },
   ],
 
   // 🏷️ Tagline hero (DA épurée)
   heroTagline: "Entreprise familiale — 40 ans d'expérience",
-  heroBaseline: "Électricien à Brissac Loire Aubance — Installation, rénovation, IRVE, domotique",
+  heroBaseline: "Électricien à Brissac Loire Aubance et Angers — Installation, rénovation, borne de recharge, domotique",
   heroImage: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85",
 
   // Témoignages — TODO remplacer par vrais avis
@@ -243,7 +229,7 @@ export const config = {
       note: 5,
       date: "Février 2026",
       texte: "Installation d'une borne de recharge 11 kW pour ma voiture électrique. Diagnostic clair, pose impeccable en une demi-journée, démarches CEE prises en charge. Très professionnels, je rappellerai pour la rénovation du tableau.",
-      travaux: "Borne de recharge IRVE",
+      travaux: "Borne de recharge",
     },
     {
       nom: "Sophie L.",
@@ -258,8 +244,8 @@ export const config = {
   // FAQ
   faq: [
     {
-      question: "Êtes-vous certifié pour les aides MaPrimeRénov' et CEE ?",
-      reponse: "Oui, GP elec est certifié RGE et Qualifelec. Ces certifications sont obligatoires pour que vos travaux ouvrent droit aux aides de l'État (MaPrimeRénov', CEE, TVA réduite à 5,5 %). Vous pouvez vérifier nos qualifications sur le site gouvernemental qualite-energie.gouv.fr.",
+      question: "Êtes-vous certifié Qualifelec ?",
+      reponse: "Oui, GP elec est certifié Qualifelec. Cette qualification professionnelle atteste de notre maîtrise technique et de notre conformité aux normes NF C 15-100. Elle est renouvelée tous les 4 ans après audit.",
     },
     {
       question: "Mon installation a 30 ans, dois-je tout refaire ?",
@@ -275,7 +261,7 @@ export const config = {
     },
     {
       question: "Quelle est votre zone d'intervention ?",
-      reponse: "[À COMPLÉTER — préciser département(s) et villes principales d'intervention]. Nous nous déplaçons gratuitement pour le devis dans cette zone.",
+      reponse: "Nous intervenons sur tout le secteur de Brissac Loire Aubance et d'Angers. Nous nous déplaçons gratuitement pour le devis dans cette zone.",
     },
     {
       question: "Quelle est la garantie sur vos installations ?",
@@ -310,10 +296,11 @@ export const config = {
 
   // SEO
   seo: {
-    title: "GP elec — Électricien Brissac Loire Aubance | 40 ans d'expérience",
-    description: "GP elec, électricien familial à Brissac Loire Aubance (49320). 40 ans d'expérience : installation neuve, rénovation, mise aux normes, borne de recharge IRVE, aménagement cuisine, dépannage. Devis gratuit.",
+    title: "GP elec — Électricien Brissac Loire Aubance & Angers | 40 ans d'expérience",
+    description: "GP elec, électricien familial à Brissac Loire Aubance (49320) et Angers. 40 ans d'expérience : installation neuve, rénovation, mise aux normes, borne de recharge, aménagement cuisine, dépannage. Devis gratuit.",
     keywords: [
       "électricien Brissac Loire Aubance",
+      "électricien Angers",
       "électricien 49320",
       "électricien Maine-et-Loire",
       "GP elec",
@@ -321,9 +308,8 @@ export const config = {
       "installation électrique Brissac",
       "rénovation électrique 49",
       "mise aux normes NF C 15-100",
-      "borne de recharge IRVE Anjou",
+      "borne de recharge Angers",
       "Qualifelec",
-      "RGE électricien",
       "Consuel",
     ],
     ogImage: "/og-image.jpg",

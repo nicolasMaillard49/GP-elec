@@ -17,12 +17,12 @@ const currentYear = new Date().getFullYear()
             </div>
             <div>
               <div class="font-bold text-lg leading-none tracking-[0.15em] uppercase">{{ config.nom }}</div>
-              <div class="text-white/40 text-[10px] tracking-[0.25em] uppercase mt-1">Électricien RGE</div>
+              <div class="text-white/40 text-[10px] tracking-[0.25em] uppercase mt-1">Électricien Qualifelec</div>
             </div>
           </div>
           <p class="text-white/50 text-sm leading-relaxed max-w-sm">
             Entreprise familiale, 40 ans d'expertise.
-            Installation, rénovation, IRVE, domotique.
+            Installation, rénovation, borne de recharge, domotique.
           </p>
           <div class="flex flex-wrap gap-2 mt-6">
             <span

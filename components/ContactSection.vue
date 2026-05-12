@@ -56,7 +56,7 @@ async function handleSubmit() {
           <a :href="config.telephoneHref" class="text-2xl sm:text-3xl font-bold hover:text-electric-400 transition-colors tracking-wide">
             {{ config.telephone }}
           </a>
-          <p class="text-white/40 text-sm mt-3">Lun-Ven, 8h-18h</p>
+          <p class="text-white/40 text-sm mt-3">Lun-Ven, 8h-12h / 13h-17h</p>
         </div>
 
         <div>
@@ -71,6 +71,14 @@ async function handleSubmit() {
           <p class="text-lg leading-relaxed">
             {{ config.adresse }}<br/>
             {{ config.codePostal }} {{ config.ville }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-electric-400 text-[10px] font-semibold tracking-[0.3em] uppercase mb-4">Zone d'intervention</p>
+          <p class="text-lg leading-relaxed">
+            Brissac Loire Aubance<br/>
+            Angers et alentours
           </p>
         </div>
 

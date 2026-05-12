@@ -30,13 +30,13 @@ import { config } from '~/config'
             <span class="font-semibold text-navy-900">{{ config.gerant }}</span> — héritier d'un
             savoir-faire familial transmis sur <span class="font-semibold text-navy-900">40 années</span>
             d'expérience. Proximité, écoute et exigence sont les fondations
-            de chaque chantier mené sur le secteur de {{ config.ville }} et de l'Anjou.
+            de chaque chantier mené sur le secteur de Brissac Loire Aubance et d'Angers.
           </p>
           <p>
             De l'installation neuve à la borne de recharge, de la rénovation
             complète à la mise aux normes, nous accompagnons particuliers et
             professionnels dans tous leurs projets électriques —
-            avec la rigueur des certifications Qualifelec, RGE et IRVE.
+            avec la rigueur de la certification Qualifelec.
           </p>
         </div>
 

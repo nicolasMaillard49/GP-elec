@@ -11,7 +11,7 @@ Basé sur `template-technique` (NMF Agence) — palette adaptée jaune électriq
 
 - Installation électrique complète (NF C 15-100, Consuel)
 - Rénovation et mise aux normes
-- Borne de recharge IRVE (3,7 → 22 kW)
+- Borne de recharge véhicule électrique (3,7 → 22 kW)
 - Aménagement cuisine (circuits dédiés)
 - Dépannage
 
@@ -26,7 +26,7 @@ Basé sur `template-technique` (NMF Agence) — palette adaptée jaune électriq
 
 Tout est dans `config.ts` :
 - Identité, contact, SIRET
-- Certifications (Qualifelec, RGE, IRVE)
+- Certifications (Qualifelec)
 - Aides financières (MaPrimeRénov', CEE, TVA 5,5 %)
 - Services, marques, témoignages, FAQ
 - SEO + légal

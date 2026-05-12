@@ -28,7 +28,7 @@ import { config } from '~/config'
           d'aides de l'État
         </h2>
         <p class="text-white/70 text-lg max-w-2xl mx-auto">
-          En tant qu'artisan certifié RGE, vos travaux sont éligibles à toutes les aides de l'État.
+          En tant qu'artisan qualifié, nous vous accompagnons pour identifier les aides éligibles à vos travaux.
           <strong class="text-white">Nous gérons les démarches à votre place.</strong>
         </p>
       </div>

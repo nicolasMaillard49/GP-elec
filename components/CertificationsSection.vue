@@ -65,8 +65,8 @@ const activeTooltip = ref<string | null>(null)
           🔍 Vérifiez nos certifications vous-même
         </h3>
         <p class="text-white/70 mb-6 max-w-2xl mx-auto">
-          La certification RGE est publique et vérifiable sur le site officiel du gouvernement.
-          Entrez notre SIRET pour confirmer notre statut RGE avant tout engagement.
+          La certification Qualifelec est publique et vérifiable sur le site officiel.
+          Entrez notre SIRET pour confirmer notre statut Qualifelec avant tout engagement.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a

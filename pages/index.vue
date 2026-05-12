@@ -25,7 +25,11 @@ const jsonLd = {
         latitude: config.geo.latitude,
         longitude: config.geo.longitude,
       },
-      areaServed: { '@type': 'AdministrativeArea', name: config.departement },
+      areaServed: [
+        { '@type': 'City', name: 'Brissac Loire Aubance' },
+        { '@type': 'City', name: 'Angers' },
+        { '@type': 'AdministrativeArea', name: config.departement },
+      ],
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: config.noteGoogle,
@@ -38,12 +42,20 @@ const jsonLd = {
         name: cert,
       })),
       priceRange: '€€',
-      openingHoursSpecification: [{
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '18:00',
-      }],
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '12:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '13:00',
+          closes: '17:00',
+        },
+      ],
     },
     {
       '@type': 'WebSite',
@@ -75,6 +87,7 @@ useHead({
     <main>
       <HeroSection />
       <AProposSection />
+      <AProposMoiSection />
       <ServicesGridSection />
       <EngagementsSection />
       <ContactSection />
