@@ -29,7 +29,7 @@ import { config } from '~/config'
           class="bg-white p-10 group transition-colors duration-300 hover:bg-navy-50/40"
         >
           <!-- Numéro -->
-          <div class="text-electric-500 text-xs font-bold tracking-[0.3em] uppercase mb-6">
+          <div class="text-navy-700 text-xs font-bold tracking-[0.3em] uppercase mb-6">
             {{ String(idx + 1).padStart(2, '0') }}
           </div>
 

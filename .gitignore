@@ -18,6 +18,10 @@ pnpm-debug.log*
 # Vercel
 .vercel/
 
+# Lighthouse reports
+lighthouse-*.report.html
+lighthouse-*.report.json
+
 # OS
 .DS_Store
 Thumbs.db

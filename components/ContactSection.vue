@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { config } from '~/config'
 
+const fullAddress = `${config.adresse}, ${config.codePostal} ${config.ville}`
+const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}&t=&z=14&ie=UTF8&iwloc=&output=embed`
+const mapDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}`
+
 const form = reactive({
   nom: '',
   telephone: '',
@@ -40,7 +44,7 @@ async function handleSubmit() {
       <p class="text-electric-400 text-xs font-semibold tracking-[0.4em] uppercase mb-8">
         Nous contacter
       </p>
-      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight leading-[1.05]">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-tight leading-[1.05]">
         Parlons de<br/>
         <span class="text-electric-400">votre projet</span>
       </h2>
@@ -56,7 +60,7 @@ async function handleSubmit() {
           <a :href="config.telephoneHref" class="text-2xl sm:text-3xl font-bold hover:text-electric-400 transition-colors tracking-wide">
             {{ config.telephone }}
           </a>
-          <p class="text-white/40 text-sm mt-3">Lun-Ven, 8h-12h / 13h-17h</p>
+          <p class="text-white/60 text-sm mt-3">Lun-Ven, 8h-12h / 13h-17h</p>
         </div>
 
         <div>
@@ -72,27 +76,64 @@ async function handleSubmit() {
             {{ config.adresse }}<br/>
             {{ config.codePostal }} {{ config.ville }}
           </p>
+
+          <!-- Mini Google Maps -->
+          <div class="relative mt-5 overflow-hidden border border-white/10 hover:border-white/20 transition-colors group">
+            <iframe
+              :src="mapEmbedUrl"
+              :title="`Carte — ${fullAddress}`"
+              class="w-full h-52 sm:h-60 grayscale-[20%] contrast-95"
+              style="border:0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+            <a
+              :href="mapDirectionsUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute bottom-3 right-3 inline-flex items-center gap-2 px-4 py-2 bg-navy-950/85 hover:bg-electric-400 hover:text-navy-950 text-white text-[10px] font-semibold tracking-[0.2em] uppercase backdrop-blur-sm border border-white/10 hover:border-electric-400 transition-all"
+            >
+              Itinéraire
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
 
         <div>
           <p class="text-electric-400 text-[10px] font-semibold tracking-[0.3em] uppercase mb-4">Zone d'intervention</p>
           <p class="text-lg leading-relaxed">
-            Brissac Loire Aubance<br/>
-            Angers et alentours
+            <strong class="font-semibold">Brissac Loire Aubance</strong> (49320)<br/>
+            <strong class="font-semibold">Angers</strong> et tout le Maine-et-Loire (49)
           </p>
+          <p class="text-white/60 text-sm mt-3">Déplacement gratuit pour le devis dans un rayon de 30&nbsp;km</p>
         </div>
 
         <div class="pt-10 border-t border-white/10">
-          <p class="text-electric-400 text-[10px] font-semibold tracking-[0.3em] uppercase mb-4">Certifications</p>
-          <div class="flex flex-wrap gap-3">
-            <span
-              v-for="cert in config.certifications"
-              :key="cert"
-              class="px-4 py-2 border border-white/15 text-xs tracking-[0.2em] uppercase text-white/70"
-            >
-              {{ cert }}
-            </span>
-          </div>
+          <p class="text-electric-400 text-[10px] font-semibold tracking-[0.3em] uppercase mb-6">Nos garanties</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4">
+              <span class="shrink-0 mt-1 size-1.5 bg-electric-400 rounded-full"></span>
+              <div>
+                <div class="text-base font-medium">Devis gratuit & détaillé</div>
+                <div class="text-white/60 text-xs mt-1">Diagnostic à domicile, retour sous 72&nbsp;h</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="shrink-0 mt-1 size-1.5 bg-electric-400 rounded-full"></span>
+              <div>
+                <div class="text-base font-medium">Garantie décennale</div>
+                <div class="text-white/60 text-xs mt-1">Sur l'ensemble de nos installations</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="shrink-0 mt-1 size-1.5 bg-electric-400 rounded-full"></span>
+              <div>
+                <div class="text-base font-medium">Marques premium</div>
+                <div class="text-white/60 text-xs mt-1">Legrand · Schneider · Hager</div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -110,9 +151,9 @@ async function handleSubmit() {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Message envoyé</h3>
+            <h3 class="text-2xl font-bold text-white uppercase tracking-wide mb-4">Message envoyé</h3>
             <p class="text-white/60 leading-relaxed max-w-sm mx-auto">
-              Nous revenons vers vous sous 48&nbsp;heures pour planifier votre diagnostic gratuit.
+              Nous revenons vers vous sous 72&nbsp;heures pour planifier votre diagnostic gratuit.
             </p>
             <button
               @click="isSuccess = false"
@@ -124,12 +165,14 @@ async function handleSubmit() {
 
           <form v-else @submit.prevent="handleSubmit" class="space-y-8" novalidate>
             <div>
-              <label class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-3">
+              <label for="contact-nom" class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/70 mb-3">
                 Nom*
               </label>
               <input
+                id="contact-nom"
                 v-model="form.nom"
                 type="text"
+                autocomplete="name"
                 class="contact-input"
                 :class="errors.nom && 'border-error'"
               />
@@ -138,24 +181,28 @@ async function handleSubmit() {
 
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
-                <label class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-3">
+                <label for="contact-tel" class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/70 mb-3">
                   Téléphone*
                 </label>
                 <input
+                  id="contact-tel"
                   v-model="form.telephone"
                   type="tel"
+                  autocomplete="tel"
                   class="contact-input"
                   :class="errors.telephone && 'border-error'"
                 />
                 <p v-if="errors.telephone" class="mt-2 text-xs text-error">{{ errors.telephone }}</p>
               </div>
               <div>
-                <label class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-3">
+                <label for="contact-email" class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/70 mb-3">
                   Email*
                 </label>
                 <input
+                  id="contact-email"
                   v-model="form.email"
                   type="email"
+                  autocomplete="email"
                   class="contact-input"
                   :class="errors.email && 'border-error'"
                 />
@@ -164,10 +211,11 @@ async function handleSubmit() {
             </div>
 
             <div>
-              <label class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-3">
+              <label for="contact-message" class="block text-[10px] font-semibold tracking-[0.3em] uppercase text-white/70 mb-3">
                 Votre projet
               </label>
               <textarea
+                id="contact-message"
                 v-model="form.message"
                 rows="4"
                 placeholder="Décrivez brièvement votre besoin…"
@@ -181,7 +229,7 @@ async function handleSubmit() {
                 type="checkbox"
                 class="mt-1 size-4 accent-electric-400 cursor-pointer"
               />
-              <span class="text-xs text-white/50 leading-relaxed">
+              <span class="text-xs text-white/65 leading-relaxed">
                 J'accepte que mes données soient utilisées pour répondre à ma demande.*
               </span>
             </label>

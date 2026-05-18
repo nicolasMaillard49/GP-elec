@@ -11,7 +11,7 @@ export const config = {
   metier: "Électricien",
   metierPluriel: "Électriciens",
   slogan: "40 ans d'expertise familiale au service de votre installation électrique",
-  description: "Fort de 40 ans d'expérience, GP elec est une entreprise familiale qui propose des services d'électricité allant du neuf à la rénovation : installation électrique complète, dépannage, mises aux normes, aménagement de cuisine, borne de recharge pour véhicule électrique.",
+  description: "Fort de 40 ans d'expérience, GP elec est une entreprise familiale qui propose des services d'électricité allant du neuf à la rénovation : installation électrique complète, dépannage urgence, mises aux normes, aménagement de cuisine.",
 
   // Contact
   telephone: "06 18 96 57 36",
@@ -25,8 +25,8 @@ export const config = {
   siret: "[À COMPLÉTER]",
   geo: { latitude: 47.3522, longitude: -0.4444 },
 
-  // Certifications
-  certifications: ["Qualifelec"],
+  // Certifications — laissé vide (pas de certif client pour le moment)
+  certifications: [] as string[],
   certificationDetails: [
     {
       nom: "Qualifelec",
@@ -51,9 +51,9 @@ export const config = {
     },
     {
       nom: "CEE",
-      description: "Certificats d'Économies d'Énergie. Primes versées par les fournisseurs d'énergie pour vos travaux d'efficacité énergétique et l'installation de bornes de recharge.",
+      description: "Certificats d'Économies d'Énergie. Primes versées par les fournisseurs d'énergie pour vos travaux d'efficacité énergétique.",
       montantMax: "Jusqu'à 960 €",
-      conditions: "Travaux d'efficacité énergétique ou borne de recharge",
+      conditions: "Travaux d'efficacité énergétique",
       couleur: "#FACC15",
       icon: "⚡",
     },
@@ -83,7 +83,7 @@ export const config = {
         "Mise à la terre et protection différentielle",
         "Certificat Consuel inclus",
       ],
-      marques: ["Legrand", "Schneider Electric", "Hager", "ABB"],
+      marques: ["Legrand", "Schneider Electric", "Hager"],
     },
     {
       id: "renovation",
@@ -100,22 +100,6 @@ export const config = {
         "Attestation de conformité Consuel",
       ],
       marques: ["Legrand", "Schneider Electric", "Hager", "Siemens"],
-    },
-    {
-      id: "borne-recharge",
-      nom: "Borne de recharge véhicule électrique",
-      icone: "🔌",
-      resume: "Installation de bornes de recharge — éligible aux aides CEE et crédit d'impôt.",
-      description: "Installation de bornes de recharge pour véhicule électrique à domicile ou en copropriété. Étude de l'arrivée électrique, dimensionnement, pose, mise en service, déclaration au gestionnaire de réseau. Bornes 3,7 à 22 kW selon votre véhicule et votre installation.",
-      prestations: [
-        "Borne murale 3,7 / 7,4 / 11 / 22 kW",
-        "Étude de l'arrivée électrique",
-        "Pose et raccordement sécurisé",
-        "Mise en service et configuration",
-        "Garantie installation et SAV",
-        "Crédit d'impôt jusqu'à 500 €",
-      ],
-      marques: ["Legrand", "Schneider", "Hager", "Wallbox"],
     },
     {
       id: "cuisine",
@@ -152,7 +136,7 @@ export const config = {
   ],
 
   // Marques partenaires
-  marques: ["Legrand", "Schneider Electric", "Hager", "ABB", "Siemens", "Wallbox", "Niko", "Eaton"],
+  marques: ["Legrand", "Schneider Electric", "Hager", "Siemens", "Niko", "Eaton"],
 
   // ⚡ Grille services (DA Anthony Frides — 4 cartes hero)
   servicesGrid: [
@@ -161,28 +145,28 @@ export const config = {
       titre: "Neuf",
       sousTitre: "Installation complète",
       texte: "Conception et réalisation d'installations électriques neuves aux normes NF C 15-100. Du tableau aux prises, certificat Consuel inclus.",
-      image: "/images/services/neuf.jpg",
+      image: "/images/services/neuf.webp",
     },
     {
       id: "renovation",
       titre: "Rénovation",
-      sousTitre: "Mise aux normes",
-      texte: "Diagnostic, dépose, pose neuve. Sécurisation des logements anciens, attestation Consuel à la livraison.",
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1400&q=80",
+      sousTitre: "Mise aux normes & cuisine",
+      texte: "Diagnostic, dépose, pose neuve. Sécurisation des logements anciens avec attestation Consuel à la livraison. Aménagement de cuisines : circuits dédiés plaque, four, prises plan de travail.",
+      image: "/images/services/renovation.webp",
     },
     {
-      id: "borne-recharge",
-      titre: "Borne de recharge",
-      sousTitre: "Véhicule électrique",
-      texte: "Installation de bornes 3,7 à 22 kW pour véhicule électrique. Éligible aux aides CEE et crédit d'impôt jusqu'à 500 €.",
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1400&q=80",
+      id: "depannage-urgence",
+      titre: "Dépannage Urgence",
+      sousTitre: "Intervention rapide",
+      texte: "Disjoncteur qui saute, court-circuit, panne totale ou partielle : intervention rapide pour remettre votre installation en service en toute sécurité.",
+      image: "/images/services/depannage.jpg",
     },
     {
       id: "domotique",
       titre: "Domotique",
       sousTitre: "Maison connectée",
       texte: "Pilotage centralisé éclairage, volets, chauffage, sécurité. Intégration KNX, Somfy, Legrand With Netatmo.",
-      image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1400&q=80",
+      image: "/images/services/domotique.webp",
     },
   ],
 
@@ -201,15 +185,15 @@ export const config = {
       texte: "Marques premium uniquement (Legrand, Schneider, Hager). Garantie décennale sur toutes nos installations.",
     },
     {
-      titre: "Conformité",
-      texte: "Certification Qualifelec renouvelée. Attestation Consuel systématique pour la mise sous tension.",
+      titre: "Sécurité",
+      texte: "Travaux réalisés dans le strict respect des normes NF C 15-100. La sécurité de votre installation est notre priorité.",
     },
   ],
 
   // 🏷️ Tagline hero (DA épurée)
   heroTagline: "Entreprise familiale — 40 ans d'expérience",
-  heroBaseline: "Électricien à Brissac Loire Aubance et Angers — Installation, rénovation, borne de recharge, domotique",
-  heroImage: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85",
+  heroBaseline: "Électricien à Brissac Loire Aubance et Angers — Installation, rénovation, dépannage urgence, domotique",
+  heroImage: "/images/hero/hero.webp",
 
   // Témoignages — TODO remplacer par vrais avis
   noteGoogle: 4.9,
@@ -228,8 +212,8 @@ export const config = {
       ville: "[À COMPLÉTER]",
       note: 5,
       date: "Février 2026",
-      texte: "Installation d'une borne de recharge 11 kW pour ma voiture électrique. Diagnostic clair, pose impeccable en une demi-journée, démarches CEE prises en charge. Très professionnels, je rappellerai pour la rénovation du tableau.",
-      travaux: "Borne de recharge",
+      texte: "Disjoncteur principal qui sautait sans arrêt un dimanche soir. Appel passé, intervention le lendemain matin. Diagnostic rapide, défaut identifié et réparé proprement. Service sérieux et réactif, exactement ce qu'on attend en cas de panne.",
+      travaux: "Dépannage électrique",
     },
     {
       nom: "Sophie L.",
@@ -252,8 +236,8 @@ export const config = {
       reponse: "Pas forcément. Une installation ancienne n'est pas systématiquement à refaire intégralement, mais elle doit respecter 6 points clés (mise à la terre, disjoncteur différentiel, protection adaptée des circuits, etc.). Nous proposons un diagnostic gratuit pour identifier précisément ce qui doit être mis aux normes — souvent une rénovation partielle suffit.",
     },
     {
-      question: "Combien coûte l'installation d'une borne de recharge ?",
-      reponse: "Pour une borne murale 7,4 kW à domicile, comptez entre 1 200 € et 1 800 € TTC tout compris (matériel + pose), avant aides. Avec la prime CEE Coup de Pouce (jusqu'à 960 €) et le crédit d'impôt borne de recharge (jusqu'à 500 €), votre reste à charge peut descendre sous 500 €. Nous établissons un devis précis après visite.",
+      question: "Intervenez-vous en urgence en cas de panne ?",
+      reponse: "Oui, nous intervenons rapidement en cas de panne électrique : disjoncteur qui saute, court-circuit, panne totale ou partielle, prise hors service. Appelez le 06 18 96 57 36 pour décrire le problème — nous évaluons l'urgence et organisons l'intervention au plus vite, avec un devis transparent avant remise en état importante.",
     },
     {
       question: "Délivrez-vous le Consuel à la livraison ?",
@@ -282,7 +266,7 @@ export const config = {
       numero: 2,
       titre: "Devis détaillé",
       description: "Vous recevez un devis transparent avec le coût total, les aides déduites et le reste à charge. Aucun coût caché.",
-      duree: "Sous 48h",
+      duree: "Sous 72h",
       icone: "📋",
     },
     {
@@ -296,21 +280,56 @@ export const config = {
 
   // SEO
   seo: {
-    title: "GP elec — Électricien Brissac Loire Aubance & Angers | 40 ans d'expérience",
-    description: "GP elec, électricien familial à Brissac Loire Aubance (49320) et Angers. 40 ans d'expérience : installation neuve, rénovation, mise aux normes, borne de recharge, aménagement cuisine, dépannage. Devis gratuit.",
+    title: "Électricien Brissac Loire Aubance & Angers — GP elec | 40 ans d'expérience",
+    description: "Électricien à Brissac Loire Aubance (49320) et Angers : installation, rénovation, mise aux normes NF C 15-100, dépannage urgence. GP elec, entreprise familiale Maine-et-Loire, 40 ans d'expérience. Devis gratuit.",
     keywords: [
+      // Cœur cible — Brissac
       "électricien Brissac Loire Aubance",
-      "électricien Angers",
+      "électricien Brissac",
       "électricien 49320",
+      "dépannage électrique Brissac Loire Aubance",
+      "urgence électricien Brissac",
+      "rénovation électrique Brissac Loire Aubance",
+      "installation électrique Brissac",
+      "mise aux normes électricité Brissac",
+      "tableau électrique Brissac Loire Aubance",
+      // Cœur cible — Angers
+      "électricien Angers",
+      "électricien Angers pas cher",
+      "dépannage électrique Angers",
+      "urgence électricien Angers",
+      "rénovation électrique Angers",
+      "installation électrique Angers",
+      "mise aux normes Angers",
+      "tableau électrique Angers",
+      "électricien artisan Angers",
+      // Maine-et-Loire / 49
       "électricien Maine-et-Loire",
+      "électricien 49",
+      "dépannage urgence électricien 49",
+      "entreprise électricité Maine-et-Loire",
+      "rénovation électrique 49",
+      // Métier / certifs / normes
+      "Qualifelec",
+      "Qualifelec Maine-et-Loire",
+      "Consuel",
+      "Consuel Angers",
+      "NF C 15-100",
+      "mise aux normes NF C 15-100",
+      "diagnostic électrique",
+      "garantie décennale électricité",
+      // Services
+      "aménagement cuisine électricité Angers",
+      "circuits dédiés cuisine",
+      "domotique Angers",
+      "domotique Brissac",
+      "électricité maison neuve Angers",
+      "électricité rénovation maison ancienne",
+      // Marque / personne
       "GP elec",
       "Guille Pierre électricien",
-      "installation électrique Brissac",
-      "rénovation électrique 49",
-      "mise aux normes NF C 15-100",
-      "borne de recharge Angers",
-      "Qualifelec",
-      "Consuel",
+      "Pierre Guille électricien Angers",
+      "entreprise familiale électricité Angers",
     ],
     ogImage: "/og-image.jpg",
   },

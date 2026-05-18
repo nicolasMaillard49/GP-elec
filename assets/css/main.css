@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-var.woff2') format('woff2-variations');
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
@@ -16,9 +24,9 @@
     @apply outline-2 outline-offset-2 outline-orange-500;
   }
 
-  /* Typography */
+  /* Typography — bold/tracking only; couleur définie par chaque section */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-navy-700 font-bold tracking-tight;
+    @apply font-bold tracking-tight;
   }
 }
 

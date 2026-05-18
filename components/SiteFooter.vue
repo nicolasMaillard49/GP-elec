@@ -9,29 +9,27 @@ const currentYear = new Date().getFullYear()
       <div class="grid md:grid-cols-3 gap-12 items-start">
         <!-- Identité -->
         <div>
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 border border-electric-400/40 flex items-center justify-center text-electric-400">
-              <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M11 3L4 12h5l-1 5 7-9h-5l1-5z" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-bold text-lg leading-none tracking-[0.15em] uppercase">{{ config.nom }}</div>
-              <div class="text-white/40 text-[10px] tracking-[0.25em] uppercase mt-1">Électricien Qualifelec</div>
-            </div>
-          </div>
-          <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+          <a href="#" class="inline-block mb-6" aria-label="GP elec — Accueil">
+            <img
+              src="/images/logo-gp-elec.webp"
+              alt="GP elec — Électricien Angers / Brissac Loire Aubance"
+              width="696"
+              height="161"
+              class="h-9 sm:h-11 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <p class="text-white/65 text-sm leading-relaxed max-w-sm">
             Entreprise familiale, 40 ans d'expertise.
-            Installation, rénovation, borne de recharge, domotique.
+            Installation, rénovation, dépannage urgence, domotique.
           </p>
-          <div class="flex flex-wrap gap-2 mt-6">
-            <span
-              v-for="cert in config.certifications"
-              :key="cert"
-              class="px-3 py-1 border border-white/15 text-[10px] tracking-[0.2em] uppercase text-white/60"
-            >
-              {{ cert }}
-            </span>
+          <div class="mt-8 pt-6 border-t border-white/5">
+            <p class="text-electric-400 text-[10px] font-semibold tracking-[0.3em] uppercase mb-3">Horaires</p>
+            <p class="text-white/60 text-sm leading-relaxed">
+              Lun – Ven<br/>
+              8h – 12h&nbsp;·&nbsp;13h – 17h
+            </p>
           </div>
         </div>
 
@@ -71,7 +69,7 @@ const currentYear = new Date().getFullYear()
 
     <!-- Barre légale -->
     <div class="border-t border-white/5">
-      <div class="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/30 tracking-wider">
+      <div class="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/55 tracking-wider">
         <p>© {{ currentYear }} {{ config.nom }} — Tous droits réservés</p>
         <p>SIRET : {{ config.legal.siret }}</p>
       </div>

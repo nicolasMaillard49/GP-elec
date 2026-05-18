@@ -13,9 +13,11 @@
     "lint": "eslint . --ext .vue,.ts,.js"
   },
   "devDependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "@nuxt/fonts": "^0.10.3",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "nuxt": "^3.14.0",
+    "sharp": "^0.34.5",
     "typescript": "^5.4.0",
     "vue": "^3.4.0",
     "vue-router": "^4.4.0"

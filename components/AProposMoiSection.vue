@@ -39,11 +39,11 @@
             <!-- Présentation -->
             <div class="text-center sm:text-left">
               <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-2">
-                Pierre Guillet
+                Pierre Guille
               </h2>
               <div class="w-10 h-px bg-electric-500 mb-4 mx-auto sm:mx-0"></div>
               <p class="text-white/70 text-base sm:text-lg leading-relaxed">
-                <span class="font-semibold text-white">CAP Électricien</span>,
+                <span class="font-semibold text-white">Électricien diplômé</span>,
                 passionné par mon métier et au service des particuliers
                 et professionnels de la région.
               </p>

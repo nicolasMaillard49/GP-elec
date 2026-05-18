@@ -1,17 +1,29 @@
 <script setup lang="ts">
 import { config } from '~/config'
 
+const SITE_URL = 'https://www.gp-elec.fr'
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
-      '@id': `https://www.gp-elec.fr/#business`,
+      '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'Electrician'],
+      '@id': `${SITE_URL}/#business`,
       name: config.nom,
+      legalName: `${config.nom} — ${config.gerant}`,
+      alternateName: ['GP elec Angers', 'GP elec Brissac Loire Aubance', 'Électricien GP elec', 'Pierre Guille Électricien'],
       description: config.description,
-      url: 'https://www.gp-elec.fr',
+      slogan: config.slogan,
+      url: SITE_URL,
       telephone: config.telephone,
       email: config.email,
+      image: `${SITE_URL}${config.seo.ogImage}`,
+      logo: `${SITE_URL}/favicon.ico`,
+      foundingDate: '1986',
+      founder: { '@type': 'Person', name: config.gerant },
+      knowsLanguage: ['fr-FR'],
+      currenciesAccepted: 'EUR',
+      paymentAccepted: ['Cash', 'Check', 'Bank transfer'],
       address: {
         '@type': 'PostalAddress',
         streetAddress: config.adresse,
@@ -26,10 +38,20 @@ const jsonLd = {
         longitude: config.geo.longitude,
       },
       areaServed: [
-        { '@type': 'City', name: 'Brissac Loire Aubance' },
-        { '@type': 'City', name: 'Angers' },
+        { '@type': 'City', name: 'Brissac Loire Aubance', '@id': 'https://www.wikidata.org/wiki/Q55670923' },
+        { '@type': 'City', name: 'Angers', '@id': 'https://www.wikidata.org/wiki/Q6486' },
         { '@type': 'AdministrativeArea', name: config.departement },
+        { '@type': 'AdministrativeArea', name: config.region },
       ],
+      serviceArea: {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: config.geo.latitude,
+          longitude: config.geo.longitude,
+        },
+        geoRadius: '30000',
+      },
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: config.noteGoogle,
@@ -37,9 +59,32 @@ const jsonLd = {
         bestRating: 5,
         worstRating: 1,
       },
-      hasCredential: config.certifications.map(cert => ({
+      hasCredential: config.certificationDetails.map(c => ({
         '@type': 'EducationalOccupationalCredential',
-        name: cert,
+        name: c.nom,
+        description: c.description,
+      })),
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `Services électricien — ${config.ville} & Angers`,
+        itemListElement: config.services.map(s => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: s.nom,
+            description: s.description,
+            serviceType: s.nom,
+            areaServed: [
+              { '@type': 'City', name: 'Brissac Loire Aubance' },
+              { '@type': 'City', name: 'Angers' },
+            ],
+            provider: { '@id': `${SITE_URL}/#business` },
+          },
+        })),
+      },
+      makesOffer: config.services.map(s => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: s.nom },
       })),
       priceRange: '€€',
       openingHoursSpecification: [
@@ -59,23 +104,26 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.gp-elec.fr/#website',
-      url: 'https://www.gp-elec.fr',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
       name: config.nom,
       description: config.seo.description,
       inLanguage: 'fr-FR',
+      publisher: { '@id': `${SITE_URL}/#business` },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${SITE_URL}/#faq`,
+      mainEntity: config.faq.map(f => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.reponse },
+      })),
     },
   ],
 }
 
 useHead({
-  title: config.seo.title,
-  meta: [
-    { name: 'description', content: config.seo.description },
-    { name: 'keywords', content: config.seo.keywords.join(', ') },
-    { property: 'og:title', content: config.seo.title },
-    { property: 'og:description', content: config.seo.description },
-  ],
   script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(jsonLd) }],
 })
 </script>

@@ -31,16 +31,17 @@ onMounted(() => {
     <div class="section-container">
       <div class="flex items-center justify-between">
         <!-- Logo -->
-        <a href="#" class="group flex items-center gap-3">
-          <div class="w-10 h-10 border border-electric-400/40 flex items-center justify-center text-electric-400 transition-all duration-300 group-hover:border-electric-400 group-hover:rotate-180">
-            <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M11 3L4 12h5l-1 5 7-9h-5l1-5z" />
-            </svg>
-          </div>
-          <div>
-            <div class="text-white font-bold text-lg leading-none tracking-[0.15em] uppercase">{{ config.nom }}</div>
-            <div class="text-white/40 text-[10px] font-medium tracking-[0.25em] uppercase mt-1">Électricien Qualifelec</div>
-          </div>
+        <a href="#" class="group flex items-center" aria-label="GP elec — Accueil">
+          <img
+            src="/images/logo-gp-elec.webp"
+            alt="GP elec — Électricien Angers / Brissac Loire Aubance"
+            width="696"
+            height="161"
+            class="h-7 sm:h-9 w-auto transition-opacity duration-300 group-hover:opacity-85"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
         </a>
 
         <!-- Nav desktop -->

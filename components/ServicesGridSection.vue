@@ -13,6 +13,11 @@ import { config } from '~/config'
         Notre <span class="text-electric-400">savoir-faire</span>
       </h2>
       <div class="mx-auto mt-10 w-12 h-px bg-electric-400/60"></div>
+      <p class="mt-10 max-w-2xl mx-auto text-white/60 text-sm sm:text-base leading-relaxed">
+        Électricien à <strong class="font-semibold text-white/80">Brissac Loire Aubance</strong>
+        et <strong class="font-semibold text-white/80">Angers</strong> — installation neuve,
+        rénovation, dépannage en urgence et domotique aux normes NF&nbsp;C&nbsp;15-100.
+      </p>
     </div>
 
     <!-- Grille 2×2 -->
@@ -20,14 +25,17 @@ import { config } from '~/config'
       <article
         v-for="service in config.servicesGrid"
         :key="service.id"
-        class="group relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden cursor-pointer"
+        class="group relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden"
       >
         <!-- Image -->
         <img
           :src="service.image"
           :alt="service.titre"
+          width="1600"
+          height="1067"
           class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
           loading="lazy"
+          decoding="async"
         />
 
         <!-- Overlay sombre permanent -->
@@ -50,15 +58,9 @@ import { config } from '~/config'
           <div class="w-10 h-px bg-electric-400 mb-5 transition-all duration-500 group-hover:w-20"></div>
 
           <!-- Texte -->
-          <p class="text-white/70 text-sm sm:text-base leading-relaxed max-w-md mb-6">
+          <p class="text-white/70 text-sm sm:text-base leading-relaxed max-w-md">
             {{ service.texte }}
           </p>
-
-          <!-- Flèche -->
-          <div class="inline-flex items-center gap-3 text-white/60 text-xs font-semibold tracking-[0.25em] uppercase transition-all duration-300 group-hover:text-electric-400 group-hover:gap-5">
-            En savoir plus
-            <span>→</span>
-          </div>
         </div>
       </article>
     </div>

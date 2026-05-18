@@ -9,9 +9,12 @@ import { config } from '~/config'
       <img
         :src="config.heroImage"
         alt=""
+        width="1300"
+        height="300"
         class="w-full h-full object-cover"
         loading="eager"
         fetchpriority="high"
+        decoding="async"
       />
     </div>
 
@@ -38,26 +41,35 @@ import { config } from '~/config'
       </p>
 
       <!-- Titre principal -->
-      <h1 class="hero-title font-bold text-white uppercase leading-[0.92] tracking-tight">
-        <span class="block">GP elec</span>
-        <span class="block text-white/90 mt-3 sm:mt-5 text-[0.5em] font-medium tracking-[0.18em]">
+      <h1 class="hero-title font-bold text-white uppercase leading-[0.92] tracking-tight inline-flex flex-col">
+        <span class="block">
+          <span class="tracking-[0.15em]">GP</span><span class="ml-[0.35em] text-electric-400 tracking-[0.08em]">elec</span>
+        </span>
+        <span class="block text-center text-white text-[0.55em] font-light tracking-[0.08em] mt-5 sm:mt-7">
           {{ config.gerant }}
         </span>
-        <span class="block text-electric-400/95 mt-4 sm:mt-6 text-[0.3em] font-light tracking-[0.4em]">
+        <span class="block w-16 h-px bg-electric-400/60 mx-auto mt-5 sm:mt-7"></span>
+        <span class="block text-electric-400/95 mt-5 sm:mt-7 text-[0.3em] font-light tracking-[0.4em] text-center">
           Électricien
         </span>
       </h1>
-
-      <!-- Filet -->
-      <div class="mx-auto mt-10 sm:mt-12 w-16 h-px bg-electric-400/60"></div>
 
       <!-- Baseline -->
       <p class="mt-8 sm:mt-10 text-white/75 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
         {{ config.heroBaseline }}
       </p>
 
+      <!-- Urgence dépannage — texte simple -->
+      <p class="mt-10 sm:mt-12 text-white/70 text-xs sm:text-sm tracking-[0.15em] uppercase">
+        Urgence dépannage :
+        <a
+          :href="config.telephoneHref"
+          class="ml-2 text-white font-semibold hover:text-electric-400 transition-colors tracking-wide"
+        >{{ config.telephone }}</a>
+      </p>
+
       <!-- CTA discrets -->
-      <div class="mt-12 flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
         <a
           href="#contact"
           class="group inline-flex items-center gap-3 px-8 py-4 bg-electric-400 hover:bg-electric-300 text-navy-950 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:gap-5"
@@ -66,10 +78,10 @@ import { config } from '~/config'
           <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
         </a>
         <a
-          :href="config.telephoneHref"
+          href="#services"
           class="inline-flex items-center gap-2 px-8 py-4 text-white/80 hover:text-white text-sm font-medium tracking-[0.15em] border border-white/20 hover:border-white/50 transition-all duration-300"
         >
-          {{ config.telephone }}
+          Nos services
         </a>
       </div>
     </div>
