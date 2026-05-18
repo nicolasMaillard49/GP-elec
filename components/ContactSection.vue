@@ -13,7 +13,6 @@ const form = reactive({
   acceptRgpd: false,
 })
 
-const isSubmitting = ref(false)
 const isSuccess = ref(false)
 const errors = reactive<Record<string, string>>({})
 
@@ -27,11 +26,19 @@ function validate() {
   return Object.keys(errors).length === 0
 }
 
-async function handleSubmit() {
+function handleSubmit() {
   if (!validate()) return
-  isSubmitting.value = true
-  await new Promise(r => setTimeout(r, 1200))
-  isSubmitting.value = false
+  const subject = `Demande de devis — ${form.nom}`
+  const bodyLines = [
+    `Nom : ${form.nom}`,
+    `Téléphone : ${form.telephone}`,
+    `Email : ${form.email}`,
+    '',
+    'Projet :',
+    form.message || '(non précisé)',
+  ]
+  const mailto = `mailto:${config.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`
+  window.location.href = mailto
   isSuccess.value = true
   Object.assign(form, { nom: '', telephone: '', email: '', message: '', acceptRgpd: false })
 }
@@ -237,18 +244,10 @@ async function handleSubmit() {
 
             <button
               type="submit"
-              :disabled="isSubmitting"
-              class="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-electric-400 hover:bg-electric-300 disabled:opacity-50 text-navy-950 text-sm font-bold uppercase tracking-[0.25em] transition-all duration-300"
+              class="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-electric-400 hover:bg-electric-300 text-navy-950 text-sm font-bold uppercase tracking-[0.25em] transition-all duration-300"
             >
-              <span v-if="!isSubmitting">Envoyer la demande</span>
-              <span v-else class="inline-flex items-center gap-3">
-                <svg class="animate-spin size-4" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"/>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
-                </svg>
-                Envoi…
-              </span>
-              <span v-if="!isSubmitting" class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+              <span>Envoyer la demande</span>
+              <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </button>
           </form>
         </Transition>
