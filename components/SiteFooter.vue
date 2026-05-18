@@ -74,5 +74,20 @@ const currentYear = new Date().getFullYear()
         <p>SIRET : {{ config.legal.siret }}</p>
       </div>
     </div>
+
+    <!-- Signature agence -->
+    <div class="border-t border-white/5">
+      <div class="section-container py-4 text-center text-[11px] text-white/40 tracking-wider">
+        Site conçu par
+        <a
+          href="https://www.nmf-agence.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white/60 hover:text-electric-400 transition-colors font-medium"
+        >
+          NMF Agence
+        </a>
+      </div>
+    </div>
   </footer>
 </template>
