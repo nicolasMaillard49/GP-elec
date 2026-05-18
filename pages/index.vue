@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { config } from '~/config'
 
-const SITE_URL = 'https://www.gp-elec.fr'
+const SITE_URL = 'https://www.gp-elec-49.com'
 
 const jsonLd = {
   '@context': 'https://schema.org',

@@ -16,7 +16,7 @@ export const config = {
   // Contact
   telephone: "06 18 96 57 36",
   telephoneHref: "tel:+33618965736",
-  email: "contact@gp-elec.fr",
+  email: "contact@gp-elec-49.com",
   adresse: "6 rue de l'Yser",
   ville: "Brissac Loire Aubance",
   codePostal: "49320",
