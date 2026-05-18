@@ -16,13 +16,13 @@ export const config = {
   // Contact
   telephone: "06 18 96 57 36",
   telephoneHref: "tel:+33618965736",
-  email: "contact@gp-elec-49.com",
+  email: "pierreguille011@gmail.com",
   adresse: "6 rue de l'Yser",
   ville: "Brissac Loire Aubance",
   codePostal: "49320",
   departement: "Maine-et-Loire",
   region: "Pays de la Loire",
-  siret: "[À COMPLÉTER]",
+  siret: "990 872 129 00012",
   geo: { latitude: 47.3522, longitude: -0.4444 },
 
   // Certifications — laissé vide (pas de certif client pour le moment)
@@ -336,7 +336,7 @@ export const config = {
 
   // Légal — TODO remplacer
   legal: {
-    siret: "[À COMPLÉTER — SIRET]",
+    siret: "990 872 129 00012",
     tva: "[À COMPLÉTER — TVA intracom]",
     formeJuridique: "[À COMPLÉTER]",
     capital: "[À COMPLÉTER]",

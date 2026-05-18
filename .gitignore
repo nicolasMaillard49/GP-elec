@@ -21,6 +21,8 @@ pnpm-debug.log*
 # Lighthouse reports
 lighthouse-*.report.html
 lighthouse-*.report.json
+lighthouse-*.json
+lh-*
 
 # OS
 .DS_Store
