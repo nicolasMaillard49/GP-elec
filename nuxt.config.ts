@@ -21,6 +21,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: config.seo.description },
+        { name: 'google-site-verification', content: '2exNAUznUrc7Nz9cHlwEUgqOxlsYQOddAlHQaaoIBuM' },
         { name: 'keywords', content: config.seo.keywords.join(', ') },
         { name: 'author', content: `${config.gerant} — ${config.nom}` },
         { name: 'robots', content: 'index, follow, max-image-preview:large' },
@@ -58,6 +59,10 @@ export default defineNuxtConfig({
         { rel: 'alternate', hreflang: 'x-default', href: 'https://www.gp-elec.fr/' },
         // Inter Variable — self-hosted woff2 (47 KB, all weights, latin)
         { rel: 'preload', href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
+      ],
+      script: [
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-PEQRYZZM60', async: true },
+        { innerHTML: "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-PEQRYZZM60');" },
       ],
     }
   },
